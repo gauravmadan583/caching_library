@@ -3,6 +3,8 @@ import { EvictionPolicyType } from "../interface";
 import Node from "../node";
 class LFU implements EvictionPolicyInterface {
 
+    private evictionPolicyType = EvictionPolicyType.LFU;
+
     private frequencyMap: Map<string, number>;
     private frequencyList: Map<number, Node[]>;
 
@@ -36,7 +38,7 @@ class LFU implements EvictionPolicyInterface {
     }
 
     public getEvictionPolicy(): EvictionPolicyType {
-        return EvictionPolicyType.LFU;
+        return this.evictionPolicyType;
     }
 
 }

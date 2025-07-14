@@ -5,11 +5,8 @@ import MemoryCache from "./memory_cache";
 class Cache implements CacheInterface {
 
     private cache: CacheInterface;
-    private cacheType: CacheType;
 
-    constructor(cacheType: CacheType, evictionPolicy: EvictionPolicyType, thresholdCapacity: number) {
-        this.cacheType = cacheType;
-        
+    constructor(cacheType: CacheType, evictionPolicy: EvictionPolicyType, thresholdCapacity: number) {        
         switch(cacheType) {
             case CacheType.Memory:
                 this.cache = new MemoryCache(evictionPolicy, thresholdCapacity);
@@ -34,7 +31,7 @@ class Cache implements CacheInterface {
     }
 
     public getCacheType() {
-        return this.cacheType;
+        return this.cache.getCacheType();
     }
 
     public getEvictionPolicy() {

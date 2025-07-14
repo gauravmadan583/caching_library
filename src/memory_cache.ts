@@ -1,9 +1,11 @@
 import EvictionPolicyInterface from "./evictionPolicy/interface";
-import {CacheInterface, EvictionPolicyType} from "./interface";
+import {CacheInterface, CacheType, EvictionPolicyType} from "./interface";
 import Node from "./node";
 import EvictionPolicy from "./evictionPolicy";
 
 class MemoryCache implements CacheInterface {
+
+    private cacheType = CacheType.Memory;
 
     private cache: Map<string, Node>;
     private evictionPolicy: EvictionPolicyInterface;
@@ -61,6 +63,10 @@ class MemoryCache implements CacheInterface {
     
     public getEvictionPolicy() {
         return this.evictionPolicy.getEvictionPolicy();
+    }
+
+    public getCacheType() {
+        return this.cacheType;
     }
 }
 

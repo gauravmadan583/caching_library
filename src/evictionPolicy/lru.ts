@@ -3,6 +3,8 @@ import { EvictionPolicyType } from "../interface";
 import Node from "../node";
 class LRU implements EvictionPolicyInterface {
 
+    private evictionPolicyType = EvictionPolicyType.LRU;
+
     private head: Node | null;
     private tail: Node | null;
 
@@ -50,7 +52,7 @@ class LRU implements EvictionPolicyInterface {
     }
 
     public getEvictionPolicy(): EvictionPolicyType {
-        return EvictionPolicyType.LRU;
+        return this.evictionPolicyType;
     }
 
 }

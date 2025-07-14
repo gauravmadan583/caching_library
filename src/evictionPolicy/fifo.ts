@@ -5,6 +5,7 @@ import Node from "../node";
 class FIFO implements EvictionPolicyInterface {
 
     private queue: Node[];
+    private evictionPolicyType = EvictionPolicyType.FIFO;
 
     constructor() {
         this.queue = [];
@@ -21,7 +22,7 @@ class FIFO implements EvictionPolicyInterface {
     }
 
     public getEvictionPolicy(): EvictionPolicyType {
-        return EvictionPolicyType.FIFO;
+        return this.evictionPolicyType;
     }
 }
 
